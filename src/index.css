@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased transition-colors duration-300;
+  }
+}
+
+/* Custom utilities for specific neon effects if needed */
+.neon-glow-primary {
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.3), 0 0 20px rgba(0, 243, 255, 0.1);
+}
+
+.text-glow {
+  text-shadow: 0 0 8px rgba(0, 243, 255, 0.4);
+}
+
+.grid-bg-dark {
+  background-image: linear-gradient(rgba(0, 243, 255, 0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 243, 255, 0.2) 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center top;
+}
+
+.grid-bg-light {
+  background-image: linear-gradient(#a3a3a3 1px, transparent 1px),
+    linear-gradient(90deg, #a3a3a3 1px, transparent 1px);
+  background-size: 50px 50px;
+  background-position: center top;
+}
+
+/* Status dot pulse */
+@keyframes pulse-neon {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 243, 255, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 8px rgba(0, 243, 255, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 243, 255, 0);
+  }
+}
+
+.animate-pulse-neon {
+  animation: pulse-neon 2s infinite;
+}
+
+/* Cursor blink */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+/* Custom Scrollbar Styles */
+/* Hide Scrollbar for cleaner look in horizontal scrollers */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Optional: Custom Theme Scrollbar if they prefer visible */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 243, 255, 0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 243, 255, 0.4);
+}
